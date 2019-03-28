@@ -53,7 +53,18 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+%get size of Xval
+valueS = size(Xval,1);
 
+%loop over number of training data
+for i = 1 : m,
+    %obtain value fot theta
+	[theta] = trainLinearReg([ones(i , 1) X(1:i , :)], y(1:i), lambda);
+    %output the error per index i and the gradient
+	[error_train(i), grad] = linearRegCostFunction([ones(i , 1) X(1:i, :)], y(1:i), theta, 0);
+    %output error for valueS dataset
+	[error_val(i), grad] = linearRegCostFunction([ones(valueS , 1) Xval], yval, theta, 0);	
+end
 
 
 

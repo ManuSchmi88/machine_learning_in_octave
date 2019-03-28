@@ -15,11 +15,11 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
-
-
-
-
-
+%loop through 1 to p
+for i = 1 : p,
+    %now create the potence of each value of X with the corresponding
+    %value of i and populate the X_poly array with it.  
+	X_poly(: , i) = X.^i;
 % =========================================================================
 
 end
